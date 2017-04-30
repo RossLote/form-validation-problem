@@ -15,8 +15,8 @@
     }
 
 
-    function validateElement(validationFuncton, el) {
-        var valid = validationFuncton(el);
+    function validateElement(validationFunction, el) {
+        var valid = validationFunction.apply(null, Array.prototype.slice.call(arguments, 1));
         if (el instanceof RadioNodeList) {
             el = el[0];
         }
