@@ -14,17 +14,23 @@
         el.className = el.className.replace(new RegExp(regex, 'g'), '');
     }
 
-
-    function validateElement(validationFunction, el) {
-        var valid = validationFunction.apply(null, Array.prototype.slice.call(arguments, 1));
-        if (el instanceof RadioNodeList) {
-            el = el[0];
-        }
+    function handleError(valid, el) {
         if (!valid) {
             addError(el.parentNode);
         } else {
             removeError(el.parentNode);
         }
+    }
+
+    function validateElement(validationFunction, element) {
+        var valid = validationFunction.apply(null, Array.prototype.slice.call(arguments, 1));
+        handleError(valid, element);
+        return valid;
+    }
+
+    function validateElements(validationFunction, elements) {
+        var valid = validationFunction.apply(null, Array.prototype.slice.call(arguments, 1));
+        handleError(valid, elements[0]);
         return valid;
     }
 
@@ -60,10 +66,10 @@
         var checked = getCheckedCheckboxes(animals);
         for (var i = 0; i < checked.length; i++) {
             if (checked[i].value === 'tiger') {
-                return !!el.value
+                return !!el.value;
             }
         }
-        return true
+        return true;
     }
 
     function runValidator(event) {
@@ -71,7 +77,7 @@
         var valid = validateElement(emailValid, elements['email']) &
                     validateElement(passwordValid, elements['password']) &
                     validateElement(colourValid, elements['colour']) &
-                    validateElement(animalValid, elements['animal']) &
+                    validateElements(animalValid, elements['animal']) &
                     validateElement(tigerValid, elements['tiger_type'], elements['animal']);
 
         if (!valid) {
@@ -84,4 +90,4 @@
     for (var i = 0; i < forms.length; i++) {
         forms[i].addEventListener('submit', runValidator, false);
     }
-}()
+}();
