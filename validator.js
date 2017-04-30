@@ -38,9 +38,15 @@
         return checked;
     }
 
+    function emailValid(el) {
+        var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        return re.test(el.value);
+    }
+
     function runValidator(event) {
-        var errors = true;
-        if (errors) {
+        var elements = event.target.elements;
+        var error = validateElement(emailValid, elements['email']);
+        if (error) {
             event.preventDefault();
             return false;
         }
