@@ -36,6 +36,12 @@ Beyond the problem statement, show us the consideration you have given to some o
 - Testing
 - Tooling
 
-## Submission
+## My Submission
 
-Please email us a link to your fork of this repository, or a zip of your solution to `1337h4x0r@springload.co.nz`.
+This branch is built as more of a real world example. Using bower to install modules and require for dependency injection. I've also added the use of jquery just to add something else to the requirejs modules.
+
+## Installation
+
+- npm install -g bower
+- bower install
+- open index.html in your browser
