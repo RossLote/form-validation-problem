@@ -58,9 +58,9 @@
 
     function runValidator(event) {
         var elements = event.target.elements;
-        var valid = validateElement(emailValid, elements['email']) |
-                    validateElement(passwordValid, elements['password']) |
-                    validateElement(colourValid, elements['colour']) |
+        var valid = validateElement(emailValid, elements['email']) &
+                    validateElement(passwordValid, elements['password']) &
+                    validateElement(colourValid, elements['colour']) &
                     validateElement(animalValid, elements['animal']);
 
         if (!valid) {
