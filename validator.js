@@ -32,7 +32,7 @@
         var checked = []
         for (var i = 0; i < checkboxes.length; i++) {
             if (checkboxes[i].checked) {
-                checked.push(checkboxes[i])
+                checked.push(checkboxes[i]);
             }
         }
         return checked;
