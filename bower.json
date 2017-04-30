@@ -1,0 +1,22 @@
+{
+  "name": "form-validation-2",
+  "homepage": "https://github.com/RossLote/form-validation-problem",
+  "authors": [
+    "Ross Lote <rosslote@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "^2.3.3",
+    "jquery": "^1.11"
+  }
+}

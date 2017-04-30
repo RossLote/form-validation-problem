@@ -1,5 +1,4 @@
-!function(){
-    var forms = document.getElementsByClassName('js-validator');
+define(['jquery'], function($){
     var errorClass = 'error';
 
     function addError(el) {
@@ -86,8 +85,5 @@
         }
         return true;
     }
-
-    for (var i = 0; i < forms.length; i++) {
-        forms[i].addEventListener('submit', runValidator, false);
-    }
-}();
+    return runValidator;
+});

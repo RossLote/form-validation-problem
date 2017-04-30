@@ -147,6 +147,8 @@
         }
 
     </style>
+    <script src="bower_components/requirejs/require.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -222,6 +224,10 @@
             </p>
         </fieldset>
     </form>
-    <script type="text/javascript" src="validator.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        require(['jquery', 'js/validator'], function($, validator) {
+            $('.js-validator').submit(validator);
+        });
+    </script>
 </body>
 </html>
