@@ -16,11 +16,11 @@
 
 
     function validateElement(validationFuncton, el) {
-        var valid = !validationFuncton(el);
+        var valid = validationFuncton(el);
         if (el instanceof RadioNodeList) {
             el = el[0];
         }
-        if (valid) {
+        if (!valid) {
             addError(el.parentNode);
         } else {
             removeError(el.parentNode);
@@ -51,12 +51,19 @@
         return !!el.value;
     }
 
+    function animalValid(els) {
+        var checked = getCheckedCheckboxes(els);
+        return checked.length  > 1;
+    }
+
     function runValidator(event) {
         var elements = event.target.elements;
-        var error = validateElement(emailValid, elements['email']) |
+        var valid = validateElement(emailValid, elements['email']) |
                     validateElement(passwordValid, elements['password']) |
-                    validateElement(colourValid, elements['colour']);
-        if (error) {
+                    validateElement(colourValid, elements['colour']) |
+                    validateElement(animalValid, elements['animal']);
+
+        if (!valid) {
             event.preventDefault();
             return false;
         }
