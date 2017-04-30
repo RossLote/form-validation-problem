@@ -56,12 +56,23 @@
         return checked.length  > 1;
     }
 
+    function tigerValid(el, animals) {
+        var checked = getCheckedCheckboxes(animals);
+        for (var i = 0; i < checked.length; i++) {
+            if (checked[i].value === 'tiger') {
+                return !!el.value
+            }
+        }
+        return true
+    }
+
     function runValidator(event) {
         var elements = event.target.elements;
         var valid = validateElement(emailValid, elements['email']) &
                     validateElement(passwordValid, elements['password']) &
                     validateElement(colourValid, elements['colour']) &
-                    validateElement(animalValid, elements['animal']);
+                    validateElement(animalValid, elements['animal']) &
+                    validateElement(tigerValid, elements['tiger_type'], elements['animal']);
 
         if (!valid) {
             event.preventDefault();
