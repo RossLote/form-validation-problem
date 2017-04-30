@@ -1,4 +1,4 @@
-define(['jquery'], function($){
+define(function(){
     var errorClass = 'error';
 
     function addError(el) {
