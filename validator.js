@@ -47,10 +47,15 @@
         return el.value.length > 7;
     }
 
+    function colourValid(el) {
+        return !!el.value;
+    }
+
     function runValidator(event) {
         var elements = event.target.elements;
         var error = validateElement(emailValid, elements['email']) |
-                    validateElement(passwordValid, elements['password']);
+                    validateElement(passwordValid, elements['password']) |
+                    validateElement(colourValid, elements['colour']);
         if (error) {
             event.preventDefault();
             return false;
