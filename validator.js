@@ -43,9 +43,14 @@
         return re.test(el.value);
     }
 
+    function passwordValid(el) {
+        return el.value.length > 7;
+    }
+
     function runValidator(event) {
         var elements = event.target.elements;
-        var error = validateElement(emailValid, elements['email']);
+        var error = validateElement(emailValid, elements['email']) |
+                    validateElement(passwordValid, elements['password']);
         if (error) {
             event.preventDefault();
             return false;
