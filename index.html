@@ -137,11 +137,12 @@
             </p>
         */
         .error > input,
+        .error > .label,
         .error > label {
             color: red;
         }
 
-        .error > input {
+        .error > input, .error > select {
             border-color: red;
         }
 
@@ -149,7 +150,7 @@
 </head>
 
 <body>
-    <form method='post' action=''>
+    <form method='post' action='' class='js-validator'>
         <h1>Fill out this awesome form</h1>
         <fieldset>
             <h3>Your details</h3>
@@ -221,5 +222,6 @@
             </p>
         </fieldset>
     </form>
+    <script type="text/javascript" src="validator.js" charset="utf-8"></script>
 </body>
 </html>
